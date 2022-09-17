@@ -1,14 +1,17 @@
 # TODO List
 
 - [ ] Gerar imagens que usaremos
-  - [ ] Casa
-  - [ ] Árvore
-  - [ ] Catavento (rotação)
-  - [ ] Maçã (translação)
-  - [ ] Sol (translação e escala)
-  - [ ] Céu azul
-  - [ ] Gramado verde
-  - [ ] Arbusto (opcional a depender do humor da Maíra)
+  - [ ] Circulo (Sol e é utilizado para outros objetos)
+  - [ ] Arvore 1/2/3/4/5/6
+  - [ ] Céu
+  - [ ] Field
+  - [ ] Rio
+  - [ ] Montanha
+  - [ ] Casa 1/2
+  - [ ] Porta
+  - [ ] Nuvem 1/2
+  - [ ] Navio (translação e escala)
+  - [ ] Windmill (rotação)
 - [ ] Definir pontos
 - [ ] Gerar matrizes de vértices
 - [ ] Criar código inicial pro plano de fundo
