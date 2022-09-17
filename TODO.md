@@ -2,14 +2,14 @@
 
 - [ ] Gerar imagens que usaremos
   - [M] Circulo (Sol e é utilizado para outros objetos)
-  - [ ] Arvore 1/2/3/4/5/6
-  - [ ] Céu
-  - [ ] Field
+  - [C] Arvore 1/2/3/4/5/6
+  - [C] Céu
+  - [C] Field
   - [M] Rio
-  - [ ] Montanha
+  - [C] Montanha
   - [M] Casa 1/2
   - [M] Nuvem 1/2
-  - [ ] Navio (translação e escala)
+  - [C] Navio (translação e escala)
   - [M] Windmill (rotação)
 - [ ] Definir pontos
 - [ ] Gerar matrizes de vértices
