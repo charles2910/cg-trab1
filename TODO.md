@@ -6,11 +6,11 @@
   - [X] Céu
   - [X] Field
   - [X] Rio
-  - [C] Montanha
+  - [X] Montanha
   - [X] Casa 1/2
   - [M] Nuvem 1/2
   - [C] Navio (translação e escala)
-  - [M] Windmill (rotação)
+  - [C] Windmill (rotação)
 - [ ] Definir pontos
 - [ ] Gerar matrizes de vértices
 - [X] Criar código inicial pro plano de fundo
