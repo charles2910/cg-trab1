@@ -1,9 +1,9 @@
 # TODO List
 
 - [ ] Gerar imagens que usaremos
-  - [M] Circulo (Sol e é utilizado para outros objetos)
+  - [X] Circulo (Sol e é utilizado para outros objetos)
   - [C] Arvore 1/2/3/4/5/6
-  - [C] Céu
+  - [X] Céu
   - [C] Field
   - [M] Rio
   - [C] Montanha
@@ -13,7 +13,7 @@
   - [M] Windmill (rotação)
 - [ ] Definir pontos
 - [ ] Gerar matrizes de vértices
-- [ ] Criar código inicial pro plano de fundo
+- [X] Criar código inicial pro plano de fundo
 - [ ] Adicionar imagens estáticas
 - [ ] Criar primitivas de translação, rotação e escala
 - [ ] Adicionar leitura de teclado e execução das primitivas
