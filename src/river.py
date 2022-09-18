@@ -1,25 +1,22 @@
-from utilities import Coordinates, Color
+from utilities import Color
 
 from OpenGL.GL import *
 import numpy as np
-import math
 
-class Circle:
-    def __init__(self, program, coordinates: Coordinates, radius, color: Color):
-        self.num_vertices = 200
-        self.vertices = np.zeros(self.num_vertices, [("position", np.float32, 2)])
+class River:
+    def __init__(self, program):
         self.program = program
-        self.radius = radius
-        self.color = color
-        self.coordinates = coordinates
+        self.color = Color(0.255, 0.412, 0.882)
+        self.vertices = np.zeros(4, [("position", np.float32, 2)])
         self.vao = None
 
     def prepare(self):
-        for i in range(self.num_vertices):
-            angle = (2 * i * math.pi) / 25
-            x = self.coordinates.x + (self.radius - .07) * math.cos(angle)
-            y = self.coordinates.y + self.radius * math.sin(angle)
-            self.vertices[i] = [x, y]
+        self.vertices['position'] = [
+            (-1.0, -1.0),
+            (-1.0, -0.5),
+            (1.0, -0.1),
+            (1.0, -1.0),
+        ]
 
         self.vao = glGenVertexArrays(1)
         buffer = glGenBuffers(1)

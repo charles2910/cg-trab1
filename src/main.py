@@ -1,6 +1,7 @@
 import glfw
 from OpenGL.GL import *
 from sun import Sun
+from river import River
 from shaders import Shader
 from window import Window
 
@@ -27,6 +28,9 @@ if __name__ == "__main__":
     sun = Sun(program)
     sun.prepare()
 
+    river = River(program)
+    river.prepare()
+
     glfw.show_window(window)
 
     while not glfw.window_should_close(window):
@@ -37,6 +41,7 @@ if __name__ == "__main__":
         # Set sky color
         glClearColor(0.529, 0.808, 0.922, 1.0)
 
+        river.draw()
         sun.draw()
 
         glfw.swap_buffers(window)

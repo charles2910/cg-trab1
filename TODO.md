@@ -5,7 +5,7 @@
   - [C] Arvore 1/2/3/4/5/6
   - [X] Céu
   - [C] Field
-  - [M] Rio
+  - [X] Rio
   - [C] Montanha
   - [M] Casa 1/2
   - [M] Nuvem 1/2
