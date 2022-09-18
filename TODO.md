@@ -7,7 +7,7 @@
   - [C] Field
   - [X] Rio
   - [C] Montanha
-  - [M] Casa 1/2
+  - [X] Casa 1/2
   - [M] Nuvem 1/2
   - [C] Navio (translação e escala)
   - [M] Windmill (rotação)
