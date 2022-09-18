@@ -1,5 +1,6 @@
 import glfw
 from OpenGL.GL import *
+from houses import House
 from sun import Sun
 from river import River
 from shaders import Shader
@@ -31,6 +32,9 @@ if __name__ == "__main__":
     river = River(program)
     river.prepare()
 
+    house = House(program)
+    house.prepare()
+
     glfw.show_window(window)
 
     while not glfw.window_should_close(window):
@@ -43,6 +47,7 @@ if __name__ == "__main__":
 
         river.draw()
         sun.draw()
+        house.draw()
 
         glfw.swap_buffers(window)
 
