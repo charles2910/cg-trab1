@@ -2,6 +2,7 @@ import glfw
 from OpenGL.GL import *
 from houses import RedHouse, GreenHouse
 from sun import Sun
+from field import Field
 from river import River
 from shaders import Shader
 from window import Window
@@ -32,6 +33,9 @@ if __name__ == "__main__":
     river = River(program)
     river.prepare()
 
+    field = Field(program)
+    field.prepare()
+
     redHouse = RedHouse(program)
     redHouse.prepare()
 
@@ -48,8 +52,9 @@ if __name__ == "__main__":
         # Set sky color
         glClearColor(0.529, 0.808, 0.922, 1.0)
 
-        river.draw()
         sun.draw()
+        river.draw()
+        field.draw()
         redHouse.draw()
         yellowHouse.draw()
 

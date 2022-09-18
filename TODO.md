@@ -4,7 +4,7 @@
   - [X] Circulo (Sol e é utilizado para outros objetos)
   - [C] Arvore 1/2/3/4/5/6
   - [X] Céu
-  - [C] Field
+  - [X] Field
   - [X] Rio
   - [C] Montanha
   - [X] Casa 1/2
