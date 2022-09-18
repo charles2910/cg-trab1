@@ -1,4 +1,5 @@
-from geometries import Circle, Color, Coordinates
+from utilities import Color, Coordinates
+from circle import Circle
 
 class Sun(Circle):
     def __init__(self, program):

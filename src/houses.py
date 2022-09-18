@@ -1,14 +1,15 @@
+from object import Object
+
 from OpenGL.GL import *
 import numpy as np
 
-class House:
+class House(Object):
     def __init__(self, program):
-        self.program = program
-        self.vertices = np.zeros(20, [("position", np.float32, 2)])
-        self.vao = None
+        super().__init__(program, None)
 
-    def prepare(self):
-        self.vertices['position'] = [
+    def create(self):
+        vertices = np.zeros(20, [("position", np.float32, 2)])
+        vertices['position'] = [
             # Main Body
             (-0.91, -0.32),
             (-0.91, -0.04),
@@ -39,22 +40,7 @@ class House:
             (-0.65, -0.20),
             (-0.65, -0.08),
         ]
-
-        self.vao = glGenVertexArrays(1)
-        buffer = glGenBuffers(1)
-        glBindVertexArray(self.vao)
-        glBindBuffer(GL_ARRAY_BUFFER, buffer)
-
-        glBufferData(GL_ARRAY_BUFFER, self.vertices.nbytes, self.vertices, GL_DYNAMIC_DRAW)
-        glBindBuffer(GL_ARRAY_BUFFER, buffer)
-
-        stride = self.vertices.strides[0]
-
-        loc = glGetAttribLocation(self.program, "position")
-        glEnableVertexAttribArray(loc)
-
-        glVertexAttribPointer(loc, 2, GL_FLOAT, False, stride, ctypes.c_void_p(0))
-        glBindVertexArray(0)
+        return vertices
 
     def draw(self):
         glBindVertexArray(self.vao)
