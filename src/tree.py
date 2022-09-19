@@ -43,6 +43,7 @@ class ScotchPineTree(Object):
 
     def draw(self):
         glBindVertexArray(self.vao)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.4, 0.2, 0.0, 1.0)
         glDrawArrays(GL_POLYGON, 0, 4)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.5, 0.0, 1.0)
@@ -77,6 +78,7 @@ class SugarPineTree(Object):
 
     def draw(self):
         glBindVertexArray(self.vao)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.4, 0.2, 0.0, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.5, 0.0, 1.0)

@@ -48,6 +48,7 @@ class Mountains(Object):
 
     def draw(self):
         glBindVertexArray(self.vao)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R - 0.1, self.color.G, self.color.B, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 0, 3)
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R, self.color.G, self.color.B, 1.0)

@@ -37,6 +37,7 @@ class Boat(Object):
 
     def draw(self):
         glBindVertexArray(self.vao)
+        glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.0, 0.5, 1.0)
         glDrawArrays(GL_QUADS, 0, 4)
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.7, 0.2, 0.2, 1.0)
