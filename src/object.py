@@ -9,6 +9,21 @@ import numpy as np
 from OpenGL.GL import *
 
 class Color:
+    """
+        A class used to represent a RGB color
+
+        ...
+
+        Attributes
+        ----------
+        R : float
+        red parameter that varies from 0 to 1
+        B : float
+        blue parameter that varies from 0 to 1
+        G : float
+        green parameter that varies from 0 to 1
+    """
+
     def __init__(self, R, G, B):
         self.R = R
         self.G = G
