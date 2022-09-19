@@ -3,6 +3,7 @@ from mountains import Mountains
 from sun import Sun
 from field import Field
 from river import River
+from tree import ScotchPineTree, SugarPineTree
 
 class Scene:
     def __init__(self, program):
@@ -12,6 +13,8 @@ class Scene:
         self.mountains = Mountains(program)
         self.redHouse = RedHouse(program)
         self.yellowHouse = GreenHouse(program)
+        self.tree1 = SugarPineTree(program)
+        self.tree2 = ScotchPineTree(program)
 
     def prepare(self):
         self.sun.prepare()
@@ -20,6 +23,8 @@ class Scene:
         self.mountains.prepare()
         self.redHouse.prepare()
         self.yellowHouse.prepare()
+        self.tree1.prepare()
+        self.tree2.prepare()
 
     def draw(self):
         self.sun.draw()
@@ -28,3 +33,5 @@ class Scene:
         self.mountains.draw()
         self.redHouse.draw()
         self.yellowHouse.draw()
+        self.tree1.draw()
+        self.tree2.draw()
