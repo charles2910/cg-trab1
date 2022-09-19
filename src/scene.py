@@ -5,37 +5,29 @@ from field import Field
 from river import River
 from tree import ScotchPineTree, SugarPineTree
 from boat import Boat
+from clouds import Cloud
 
 class Scene:
     def __init__(self, program):
-        self.sun = Sun(program)
-        self.river = River(program)
-        self.field = Field(program)
-        self.mountains = Mountains(program)
-        self.redHouse = RedHouse(program)
-        self.yellowHouse = GreenHouse(program)
-        self.tree1 = SugarPineTree(program)
-        self.tree2 = ScotchPineTree(program)
-        self.boat = Boat(program)
+        self.objects = [
+            Sun(program),
+            River(program),
+            Field(program),
+            Mountains(program),
+            RedHouse(program),
+            GreenHouse(program),
+            SugarPineTree(program),
+            ScotchPineTree(program),
+            Boat(program),
+            Cloud(program, 0),
+            Cloud(program, 1.1),
+            Cloud(program, 1.5)
+        ]
 
     def prepare(self):
-        self.sun.prepare()
-        self.river.prepare()
-        self.field.prepare()
-        self.mountains.prepare()
-        self.redHouse.prepare()
-        self.yellowHouse.prepare()
-        self.tree1.prepare()
-        self.tree2.prepare()
-        self.boat.prepare()
+        for object in self.objects:
+            object.prepare()
 
     def draw(self):
-        self.sun.draw()
-        self.river.draw()
-        self.field.draw()
-        self.mountains.draw()
-        self.redHouse.draw()
-        self.yellowHouse.draw()
-        self.tree1.draw()
-        self.tree2.draw()
-        self.boat.draw()
+        for object in self.objects:
+            object.draw()

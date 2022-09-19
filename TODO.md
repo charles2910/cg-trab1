@@ -8,7 +8,7 @@
   - [X] Rio
   - [X] Montanha
   - [X] Casa 1/2
-  - [M] Nuvem 1/2
+  - [X] Nuvem 1/2
   - [X] Navio
   	- [C] Translação
 	- [C] Escala
