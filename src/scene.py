@@ -4,6 +4,7 @@ from sun import Sun
 from field import Field
 from river import River
 from tree import ScotchPineTree, SugarPineTree
+from boat import Boat
 
 class Scene:
     def __init__(self, program):
@@ -15,6 +16,7 @@ class Scene:
         self.yellowHouse = GreenHouse(program)
         self.tree1 = SugarPineTree(program)
         self.tree2 = ScotchPineTree(program)
+        self.boat = Boat(program)
 
     def prepare(self):
         self.sun.prepare()
@@ -25,6 +27,7 @@ class Scene:
         self.yellowHouse.prepare()
         self.tree1.prepare()
         self.tree2.prepare()
+        self.boat.prepare()
 
     def draw(self):
         self.sun.draw()
@@ -35,3 +38,4 @@ class Scene:
         self.yellowHouse.draw()
         self.tree1.draw()
         self.tree2.draw()
+        self.boat.draw()
