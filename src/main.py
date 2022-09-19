@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+#----------------------------------------------------------------------------
+# Created By: Carlos Henrique Lima Melara (9805380) and Maíra Canal (11819403)
+# Created Date: 18/09/2022
+# ---------------------------------------------------------------------------
+
 from scene import Scene
 from shaders import Shader
 from window import Window

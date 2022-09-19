@@ -1,8 +1,18 @@
-from utilities import Color
+#!/usr/bin/env python3
+#----------------------------------------------------------------------------
+# Created By: Carlos Henrique Lima Melara (9805380) and Maíra Canal (11819403)
+# Created Date: 18/09/2022
+# ---------------------------------------------------------------------------
 
 from abc import abstractmethod
 import numpy as np
 from OpenGL.GL import *
+
+class Color:
+    def __init__(self, R, G, B):
+        self.R = R
+        self.G = G
+        self.B = B
 
 class Object:
     def __init__(self, program, color: Color):

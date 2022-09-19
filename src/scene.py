@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+#----------------------------------------------------------------------------
+# Created By: Carlos Henrique Lima Melara (9805380) and Maíra Canal (11819403)
+# Created Date: 18/09/2022
+# ---------------------------------------------------------------------------
+
 from houses import RedHouse, GreenHouse
 from mountains import Mountains
 from sun import Sun

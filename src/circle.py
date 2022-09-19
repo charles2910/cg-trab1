@@ -1,9 +1,19 @@
-from utilities import Coordinates, Color
-from object import Object
+#!/usr/bin/env python3
+#----------------------------------------------------------------------------
+# Created By: Carlos Henrique Lima Melara (9805380) and Maíra Canal (11819403)
+# Created Date: 18/09/2022
+# ---------------------------------------------------------------------------
+
+from object import Object, Color
 
 from OpenGL.GL import *
 import numpy as np
 import math
+
+class Coordinates:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
 
 class Circle(Object):
     def __init__(self, program, coordinates: Coordinates, radius, color: Color):
