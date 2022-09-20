@@ -6,7 +6,6 @@
 
 from object import Object, Color, Coordinates
 from circle import Circle
-from transform import Transform
 
 import numpy as np
 
@@ -49,5 +48,5 @@ class Cloud(Object):
     def draw(self):
         '''Draw each of the circles applying the translation matrix'''
         for circle in self.circles:
-            circle.mat_transformation = Transform().translate(self.t_x, 0)
+            circle.translate(self.t_x, 0.0)
             circle.draw()
