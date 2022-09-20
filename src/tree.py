@@ -10,24 +10,36 @@ from OpenGL.GL import *
 import numpy as np
 
 class ScotchPineTree(Object):
+    """
+        A class used to represent a scotch pine tree. Child of class Object.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+    """
     def __init__(self, program):
         super().__init__(program, None)
 
     def create(self):
+        '''Define the vertex of the scotch pine tree'''
         vertices = np.zeros(13, [("position", np.float32, 2)])
-        # Add componente randômica para diferenciar árvores
-        largura_tronco = np.random.rand()/50.0 - 0.01
-        largura_folhagem = np.random.rand()/30.0 - 0.0167
-        altura_folhagem = np.random.rand()/20.0 - 0.025
-        print(largura_tronco, largura_folhagem, altura_folhagem)
-        vertices['position'] = [
-            # Tronco
-            (-0.04 + largura_tronco, -0.2),
-            (-0.04 + largura_tronco, -0.0),
-            (-0.08 - largura_tronco, -0.0),
-            (-0.08 - largura_tronco, -0.2),
 
-            # Folhagem
+        # Add random componente to differentiate trees
+        trunk_width = np.random.rand() / 50.0 - 0.01
+        foliage_width = np.random.rand() / 30.0 - 0.0167
+        foliage_height = np.random.rand() / 20.0 - 0.025
+
+        vertices['position'] = [
+            # Trunk
+            (-0.04 + trunk_width, -0.2),
+            (-0.04 + trunk_width, -0.0),
+            (-0.08 - trunk_width, -0.0),
+            (-0.08 - trunk_width, -0.2),
+
+            # Foliage
             (-0.18,-0.00),
             (-0.06, 0.24),
             ( 0.06, 0.00),
@@ -38,49 +50,71 @@ class ScotchPineTree(Object):
             (-0.06, 0.40),
             ( 0.06, 0.16),
         ]
-        #print(vertices)
         return vertices
 
     def draw(self):
+        '''Draw the scotch pine tree in the window with the proper colors'''
         glBindVertexArray(self.vao)
         glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
+
+        # Color and draw the trunk
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.4, 0.2, 0.0, 1.0)
         glDrawArrays(GL_POLYGON, 0, 4)
+        # Color and draw the foliage
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.5, 0.0, 1.0)
         glDrawArrays(GL_POLYGON, 4, 3)
         glDrawArrays(GL_POLYGON, 7, 3)
         glDrawArrays(GL_POLYGON, 10, 3)
+
         glBindVertexArray(0)
 
 class SugarPineTree(Object):
+    """
+        A class used to represent a sugar pine tree. Child of class Object.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+    """
     def __init__(self, program):
         super().__init__(program, None)
 
     def create(self):
+        '''Define the vertex of the sugar pine tree'''
         vertices = np.zeros(7, [("position", np.float32, 2)])
-        # Add componente randômica para diferenciar árvores
-        largura_tronco = np.random.rand()/50.0 - 0.01
-        largura_folhagem = np.random.rand()/30.0 - 0.0167
-        altura_folhagem = np.random.rand()/20.0 - 0.025
-        vertices['position'] = [
-            # Tronco
-            (0.65 + largura_tronco, 0.0),
-            (0.65 + largura_tronco, 0.12),
-            (0.71 - largura_tronco, 0.12),
-            (0.71 - largura_tronco, 0.0),
 
-            # Folhagem
-            (0.80 + largura_folhagem, 0.12),
-            (0.56 - largura_folhagem, 0.12),
-            (0.68, 0.5 + altura_folhagem),
+        # Add random componente to differentiate trees
+        trunk_width = np.random.rand() / 50.0 - 0.01
+        foliage_width = np.random.rand() / 30.0 - 0.0167
+        foliage_height = np.random.rand() / 20.0 - 0.025
+
+        vertices['position'] = [
+            # Trunk
+            (0.65 + trunk_width, 0.0),
+            (0.65 + trunk_width, 0.12),
+            (0.71 - trunk_width, 0.12),
+            (0.71 - trunk_width, 0.0),
+
+            # Foliage
+            (0.80 + foliage_width, 0.12),
+            (0.56 - foliage_width, 0.12),
+            (0.68, 0.5 + foliage_height),
         ]
         return vertices
 
     def draw(self):
+        '''Draw the sugar pine tree in the window with the proper colors'''
         glBindVertexArray(self.vao)
         glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
+
+        # Color and draw the trunk
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.4, 0.2, 0.0, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4)
+        # Color and draw the foliage
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.5, 0.0, 1.0)
         glDrawArrays(GL_TRIANGLES, 4, 3)
+
         glBindVertexArray(0)
