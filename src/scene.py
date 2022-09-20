@@ -14,7 +14,18 @@ from boat import Boat
 from clouds import Cloud
 
 class Scene:
+    """
+        A class used to group all objects in the scene.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+    """
     def __init__(self, program):
+        # List of all the objects in the scene
         self.objects = [
             Sun(program),
             River(program),
@@ -31,9 +42,11 @@ class Scene:
         ]
 
     def prepare(self):
+        '''Prepare all the objects in the scene'''
         for object in self.objects:
             object.prepare()
 
     def draw(self):
+        '''Draw all the objects in the scene'''
         for object in self.objects:
             object.draw()
