@@ -10,10 +10,21 @@ from OpenGL.GL import *
 import numpy as np
 
 class Windmill(Object):
+    """
+        A class used to represent the windmill. Child of class Object.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+    """
     def __init__(self, program):
         super().__init__(program, None)
 
     def create(self):
+        '''Define the vertex of the windmill'''
         vertices = np.zeros(22, [("position", np.float32, 2)])
         vertices['position'] = [
             # Main Body
@@ -51,14 +62,20 @@ class Windmill(Object):
         return vertices
 
     def draw(self):
+        '''Draw the windmill in the window with the proper colors'''
         glBindVertexArray(self.vao)
         glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
+
+        # Color and draw the main body
         glUniform4f(glGetUniformLocation(self.program, "color"), 1.0, 0.14, 0.0, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 0, 4)
+        # Color and draw the roof and the door
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.38, 0.19, 0.0, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 4, 6)
         glDrawArrays(GL_TRIANGLE_FAN, 10, 4)
+        # Color and draw the windows
         glUniform4f(glGetUniformLocation(self.program, "color"), 0.0, 0.31, 0.31, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 14, 4)
         glDrawArrays(GL_TRIANGLE_FAN, 18, 4)
+
         glBindVertexArray(0)
