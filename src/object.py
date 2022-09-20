@@ -8,6 +8,23 @@ from abc import abstractmethod
 import numpy as np
 from OpenGL.GL import *
 
+class Coordinates:
+    """
+        A class used to represent a cartesian coordinate
+
+        ...
+
+        Attributes
+        ----------
+        x : float
+        x coordinate that varies from -1 to 1
+        y : float
+        y coordinate that varies from -1 to 1
+    """
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
 class Color:
     """
         A class used to represent a RGB color
