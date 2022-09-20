@@ -11,7 +11,7 @@ import numpy as np
 
 class Boat(Object):
     """
-        A class used to represent the boat. Child of Object.
+        A class used to represent the boat. Child of class Object.
 
         ...
 
