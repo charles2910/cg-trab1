@@ -10,11 +10,23 @@ import numpy as np
 from OpenGL.GL import *
 
 class Mountains(Object):
+    """
+        A class used to represent the mountains. Child of class Object.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+    """
     def __init__(self, program):
         super().__init__(program, Color(0.627, 0.322, 0.176))
 
     def create(self):
+        '''Define the vertex of the mountains'''
         vertices = np.zeros(21, [("position", np.float32, 2)])
+        # Each group of three vertices represent a mountain
         vertices['position'] = [
             (-0.20, 0.20),
             (0.03, 0.50),
@@ -47,16 +59,24 @@ class Mountains(Object):
         return vertices
 
     def draw(self):
+        '''Draw the mountains in the window with the proper colors'''
         glBindVertexArray(self.vao)
         glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
+
+        # change the color of the mountains to create a depth effect
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R - 0.1, self.color.G, self.color.B, 1.0)
+
+        # each group of three vertex is drawed as a triangule
         glDrawArrays(GL_TRIANGLE_FAN, 0, 3)
+
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R, self.color.G, self.color.B, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 3, 3)
         glDrawArrays(GL_TRIANGLE_FAN, 6, 3)
         glDrawArrays(GL_TRIANGLE_FAN, 9, 3)
+
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R + 0.1, self.color.G, self.color.B, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 12, 3)
         glDrawArrays(GL_TRIANGLE_FAN, 15, 3)
         glDrawArrays(GL_TRIANGLE_FAN, 18, 3)
+
         glBindVertexArray(0)
