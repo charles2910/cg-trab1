@@ -12,6 +12,7 @@ from river import River
 from tree import ScotchPineTree, SugarPineTree
 from boat import Boat
 from clouds import Cloud
+from windmill import Windmill
 
 class Scene:
     """
@@ -31,6 +32,7 @@ class Scene:
             River(program),
             Field(program),
             Mountains(program),
+            Windmill(program),
             RedHouse(program),
             GreenHouse(program),
             SugarPineTree(program),
@@ -38,7 +40,7 @@ class Scene:
             Boat(program),
             Cloud(program, 0),
             Cloud(program, 1.1),
-            Cloud(program, 1.5)
+            Cloud(program, 1.5),
         ]
 
     def prepare(self):
