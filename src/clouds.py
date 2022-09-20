@@ -4,8 +4,8 @@
 # Created Date: 18/09/2022
 # ---------------------------------------------------------------------------
 
-from object import Object, Color
-from circle import Circle, Coordinates
+from object import Object, Color, Coordinates
+from circle import Circle
 from transform import Transform
 
 import numpy as np

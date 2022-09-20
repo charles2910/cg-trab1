@@ -4,8 +4,8 @@
 # Created Date: 18/09/2022
 # ---------------------------------------------------------------------------
 
-from circle import Circle, Coordinates
-from object import Color
+from circle import Circle
+from object import Color, Coordinates
 
 class Sun(Circle):
     """
