@@ -7,6 +7,20 @@
 import glfw
 
 class Window:
+    """
+        A class used to represent the system window.
+
+        ...
+
+        Attributes
+        ----------
+        x : int
+        width of the window
+        y : int
+        height of the window
+        name: str
+        name of the window
+    """
     def __init__(self, x: int, y: int, name: str):
         glfw.init()
         glfw.window_hint(glfw.VISIBLE, glfw.FALSE)
