@@ -32,11 +32,13 @@ if __name__ == "__main__":
     window = Window(1200, 700, "Paisagem").window
     program = Shader(vertex_code, fragment_code).program
 
+    # Create and prepare all scene objects
     scene = Scene(program)
     scene.prepare()
 
     glfw.show_window(window)
 
+    # Main window loop
     while not glfw.window_should_close(window):
         glfw.poll_events()
 
