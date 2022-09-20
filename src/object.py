@@ -47,10 +47,23 @@ class Color:
         self.B = B
 
 class Object:
+    """
+        A abstract class used to represent a Object in the window.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+        color : class Color
+        color of the object
+    """
     def __init__(self, program, color: Color):
         self.program = program
         self.color = color
         self.vao = None
+        # The base object contains the identity transformation matrix
         self.mat_transformation = np.array([1.0, 0.0, 0.0, 0.0,
                                             0.0, 1.0, 0.0, 0.0,
                                             0.0, 0.0, 1.0, 0.0,
@@ -58,19 +71,26 @@ class Object:
 
     @abstractmethod
     def create(self):
+        """An abstract method to define the vertex of the objects"""
         pass
 
     def prepare(self):
+        """Prepare the vertices to be send to the GPU"""
         self.vertices = self.create()
 
+        # Request a VAO
         self.vao = glGenVertexArrays(1)
+        # Request a buffer slot from GPU
         buffer = glGenBuffers(1)
         glBindVertexArray(self.vao)
+        # Make this buffer the default one
         glBindBuffer(GL_ARRAY_BUFFER, buffer)
 
+        # Upload data
         glBufferData(GL_ARRAY_BUFFER, self.vertices.nbytes, self.vertices, GL_DYNAMIC_DRAW)
         glBindBuffer(GL_ARRAY_BUFFER, buffer)
 
+        # Bind the position attribute
         stride = self.vertices.strides[0]
 
         loc = glGetAttribLocation(self.program, "position")
@@ -80,8 +100,11 @@ class Object:
         glBindVertexArray(0)
 
     def draw(self):
+        """Generic draw method for simple objects. For complex objects, this method is overwritten."""
         glBindVertexArray(self.vao)
         glUniformMatrix4fv(glGetUniformLocation(self.program, "mat_transformation"), 1, GL_TRUE, self.mat_transformation)
+
         glUniform4f(glGetUniformLocation(self.program, "color"), self.color.R, self.color.G, self.color.B, 1.0)
         glDrawArrays(GL_TRIANGLE_FAN, 0, len(self.vertices))
+
         glBindVertexArray(0)
