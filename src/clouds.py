@@ -11,9 +11,24 @@ from transform import Transform
 import numpy as np
 
 class Cloud(Object):
+    """
+        A class used to represent a cloud. Child of class Object.
+
+        ...
+
+        Attributes
+        ----------
+        program : class 'ctypes.c_uint'
+        an object to which the shader objects will be attached
+
+        translate_x : float
+        offset in the x axis relative to the original position of the cloud
+    """
     def __init__(self, program, translate_x):
         super().__init__(program, None)
         self.t_x = translate_x
+
+        # A cloud is a composition of 4 circles
         self.circles = [
             Circle(program, Coordinates(-0.85, 0.77), 0.15, Color(0.80, 0.80, 0.80)),
             Circle(program, Coordinates(-0.79, 0.70), 0.15, Color(0.80, 0.80, 0.80)),
@@ -22,14 +37,17 @@ class Cloud(Object):
         ]
 
     def create(self):
+        '''Define the vertices for each of the circles'''
         for circle in self.circles:
             circle.create()
 
     def prepare(self):
+        '''Prepare the vertices information for each of the circles'''
         for circle in self.circles:
-            circle.mat_transformation = Transform().translate(self.t_x, 0)
             circle.prepare()
 
     def draw(self):
+        '''Draw each of the circles applying the translation matrix'''
         for circle in self.circles:
+            circle.mat_transformation = Transform().translate(self.t_x, 0)
             circle.draw()
