@@ -127,16 +127,20 @@ class Object:
             [0.0, 0.0, 1.0, 0.0],
             [0.0, 0.0, 0.0, 1.0]],
             np.float32)
-        self.mat_transformation = np.matmul(self.mat_transformation, transl_matrix)
+        self.mat_transformation = np.matmul(transl_matrix, self.mat_transformation)
 
     def scale(self, s_x, s_y):
-        '''Returns a scaling matrix with factor (s_x, s_y)'''
-        self.mat_transformation = np.array([
-            s_x, 0.0, 0.0, 0.0,
-            0.0, s_y, 0.0, 0.0,
-            0.0, 0.0, 1.0, 0.0,
-            0.0, 0.0, 0.0, 1.0],
-            np.float32)
+        '''Multiply the current matrix by the scale matrix with offset (t_x, t_y)'''
+        new_scale = self.obj_scale * s_x
+        if new_scale > 0:
+            self.obj_scale = new_scale
+            mat_scale = np.array([
+                [s_x, 0.0, 0.0, self.coordinates.x * (1.0 - s_x)],
+                [0.0, s_x, 0.0, self.coordinates.y * (1.0 - s_x)],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0]],
+                np.float32)
+            self.mat_transformation = np.matmul(mat_scale, self.mat_transformation)
 
     def rotate(self, ang):
         '''Returns a rotation matrix with angle ang'''
