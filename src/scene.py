@@ -38,12 +38,12 @@ class Scene:
             "GreenHouse": GreenHouse(program),
             "SugarTreePine": SugarPineTree(program),
             "ScotchTreePine": ScotchPineTree(program, Coordinates( -0.3 , 0.0)),
-            "Boat": Boat(program, Coordinates( 0.65 , -0.65)),
             "Cloud1": Cloud(program, 0),
             "Cloud2": Cloud(program, 1.1),
             "Cloud3": Cloud(program, 1.5),
             "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),
-            "Helix": Helix(program, Coordinates( 0.0 , 0.0))
+            "Helix": Helix(program, Coordinates( 0.0 , 0.0)),
+            "Boat": Boat(program, Coordinates( 0.65 , -0.65))
         }
 
     def prepare(self):
