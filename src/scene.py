@@ -13,6 +13,7 @@ from tree import ScotchPineTree, SugarPineTree
 from boat import Boat
 from clouds import Cloud
 from windmill import Windmill
+from helix import Helix
 from object import Coordinates
 
 class Scene:
@@ -33,15 +34,16 @@ class Scene:
             "River": River(program),
             "Field": Field(program),
             "Mountains": Mountains(program),
-            "Windmill": Windmill(program),
             "RedHouse": RedHouse(program),
             "GreenHouse": GreenHouse(program),
             "SugarTreePine": SugarPineTree(program),
-            "ScotchTreePine": ScotchPineTree(program),
-            "Boat": Boat(program, Coordinates( 0.5 , 0.0)),
+            "ScotchTreePine": ScotchPineTree(program, Coordinates( -0.3 , 0.0)),
+            "Boat": Boat(program, Coordinates( 0.65 , -0.65)),
             "Cloud1": Cloud(program, 0),
             "Cloud2": Cloud(program, 1.1),
             "Cloud3": Cloud(program, 1.5),
+            "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),
+            "Helix": Helix(program, Coordinates( 0.0 , 0.0))
         }
 
     def prepare(self):
