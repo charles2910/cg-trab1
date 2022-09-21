@@ -4,7 +4,7 @@
 # Created Date: 18/09/2022
 # ---------------------------------------------------------------------------
 
-from object import Object
+from object import Object, Coordinates
 
 from OpenGL.GL import *
 import numpy as np
@@ -20,8 +20,14 @@ class Boat(Object):
         program : class 'ctypes.c_uint'
         an object to which the shader objects will be attached
     """
-    def __init__(self, program):
+    def __init__(self, program, coord: Coordinates):
         super().__init__(program, None)
+        self.coordinates = coord
+        self.mat_transformation = np.array([1.0, 0.0, 0.0, self.coordinates.x,
+                                            0.0, 1.0, 0.0, self.coordinates.y,
+                                            0.0, 0.0, 1.0, 0.0,
+                                            0.0, 0.0, 0.0, 1.0], np.float32)
+        self.obj_scale = 1.0
 
     def create(self):
         '''Define the vertex of the boat'''
@@ -62,3 +68,22 @@ class Boat(Object):
         glDrawArrays(GL_TRIANGLE_STRIP, 7, 4)
 
         glBindVertexArray(0)
+
+    def translate(self, t_x, t_y):
+        '''Returns a translation matrix with offset (t_x, t_y)'''
+        self.coordinates.x += t_x
+        self.coordinates.y += t_y
+        if self.coordinates.x > 1:
+            self.coordinates.x -= 2
+        elif self.coordinates.x < -1:
+            self.coordinates.x += 2
+        if self.coordinates.y > 1:
+            self.coordinates.y -= 2
+        elif self.coordinates.y < -1:
+            self.coordinates.y += 2
+        self.mat_transformation = np.array([
+            1.0, 0.0, 0.0, self.coordinates.x,
+            0.0, 1.0, 0.0, self.coordinates.y,
+            0.0, 0.0, 1.0, 0.0,
+            0.0, 0.0, 0.0, 1.0],
+            np.float32)
