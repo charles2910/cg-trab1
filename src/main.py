@@ -44,8 +44,8 @@ if __name__ == "__main__":
         if key == 262: scene.objects["Boat"].translate( 0.01, 0.00) # Direita
         if key == 87: scene.objects["Sun"].scale( 0.02, 0.02) # Aumenta
         if key == 83: scene.objects["Sun"].scale(-0.02, -0.02) # Diminui
-        if key == 65: scene.objects["Boat"].scale(0.05, 0.05) # Aumenta
-        if key == 68: scene.objects["Boat"].scale(-0.05, -0.05) # Aumenta
+        if key == 65: scene.objects["Helix"].rotate(0.03) # roda
+        if key == 68: scene.objects["Helix"].rotate(-0.03) # roda
 
     glfw.set_key_callback(window,key_event)
 
