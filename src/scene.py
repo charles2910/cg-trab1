@@ -42,8 +42,8 @@ class Scene:
             "Cloud1": Cloud(program, 0.0),
             "Cloud2": Cloud(program, 1.1),
             "Cloud3": Cloud(program, 1.5),
-            "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),
-            "Helix": Helix(program, Coordinates( 0.0 , 0.0)),
+            "Windmill": Windmill(program, Coordinates( 0.27 , -0.42)),
+            "Helix": Helix(program, Coordinates( -0.03 , 0.03)),
             "Boat": Boat(program, Coordinates( 0.65 , -0.75))
         }
 
