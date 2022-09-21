@@ -35,18 +35,13 @@ class Cloud(Object):
             Circle(program, 0.15, Coordinates(-0.75, 0.77), color=color)
         ]
 
-    def create(self):
-        '''Define the vertices for each of the circles'''
-        for circle in self.circles:
-            circle.create()
-
     def prepare(self):
         '''Prepare the vertices information for each of the circles'''
         for circle in self.circles:
             circle.prepare()
+            circle.translate(self.t_x, 0.0)
 
     def draw(self):
         '''Draw each of the circles applying the translation matrix'''
         for circle in self.circles:
-            circle.translate(self.t_x, 0.0)
             circle.draw()
