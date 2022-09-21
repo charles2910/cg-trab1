@@ -27,10 +27,6 @@ class Helix(Object):
     """
     def __init__(self, program, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)
-        self.mat_transformation = np.array([1.0, 0.0, 0.0, self.coordinates.x,
-                                            0.0, 1.0, 0.0, self.coordinates.y,
-                                            0.0, 0.0, 1.0, 0.0,
-                                            0.0, 0.0, 0.0, 1.0], np.float32)
 
     def create(self):
         '''Define the vertices for the helix'''
@@ -75,47 +71,3 @@ class Helix(Object):
         glDrawArrays(GL_TRIANGLE_FAN, 12, 4)
 
         glBindVertexArray(0)
-
-    def translate(self, t_x, t_y):
-        '''Returns a translation matrix with offset (t_x, t_y)'''
-        self.coordinates.x += t_x
-        self.coordinates.y += t_y
-        if self.coordinates.x > 1:
-            self.coordinates.x -= 2
-        elif self.coordinates.x < -1:
-            self.coordinates.x += 2
-        if self.coordinates.y > 1:
-            self.coordinates.y -= 2
-        elif self.coordinates.y < -1:
-            self.coordinates.y += 2
-        self.mat_transformation = np.array([
-            1.0, 0.0, 0.0, self.coordinates.x,
-            0.0, 1.0, 0.0, self.coordinates.y,
-            0.0, 0.0, 1.0, 0.0,
-            0.0, 0.0, 0.0, 1.0],
-            np.float32)
-
-    def rotate(self, ang):
-        '''Returns a rotation matrix with angle ang'''
-        self.obj_rotation += ang
-        self.mat_transformation = np.array([
-            np.cos(self.obj_rotation),
-            -np.sin(self.obj_rotation),
-            0.0,
-            self.coordinates.x * (1 - np.cos(ang)) + self.coordinates.y * np.sin(ang),
-
-            np.sin(self.obj_rotation),
-            np.cos(self.obj_rotation),
-            0.0,
-            self.coordinates.y * (1 - np.cos(ang)) - self.coordinates.x * np.sin(ang),
-
-            0.0,
-            0.0,
-            1.0,
-            0.0,
-
-            0.0,
-            0.0,
-            0.0,
-            1.0],
-            np.float32)

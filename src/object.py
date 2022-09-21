@@ -130,7 +130,7 @@ class Object:
         self.mat_transformation = np.matmul(transl_matrix, self.mat_transformation)
 
     def scale(self, s_x, s_y):
-        '''Multiply the current matrix by the scale matrix with offset (t_x, t_y)'''
+        '''Multiply the current matrix by the scale matrix (s_x, s_x). Keep ratio s_y = s_x'''
         new_scale = self.obj_scale * s_x
         if new_scale > 0:
             self.obj_scale = new_scale
@@ -143,10 +143,13 @@ class Object:
             self.mat_transformation = np.matmul(mat_scale, self.mat_transformation)
 
     def rotate(self, ang):
-        '''Returns a rotation matrix with angle ang'''
-        self.mat_transformation = np.array([
-            np.cos(ang), -np.sin(ang), 0.0, 0.0,
-            np.sin(ang),  np.cos(ang), 0.0, 0.0,
-            0.0,          0.0,         1.0, 0.0,
-            0.0,          0.0,         0.0, 1.0],
+        '''Multiply the current matrix by the rotation matrix (ang).'''
+        self.obj_rotation += ang
+        ref = self.coordinates
+        mat_rot = np.array([
+            [np.cos(ang), -np.sin(ang),  0.0,  ref.x *(1 - np.cos(ang)) + ref.y * np.sin(ang)],
+            [np.sin(ang),  np.cos(ang),  0.0,  ref.y *(1 - np.cos(ang)) - ref.x * np.sin(ang)],
+            [0.0,          0.0,          1.0,  0.0],
+            [0.0,          0.0,          0.0,  1.0]],
             np.float32)
+        self.mat_transformation = np.matmul(mat_rot, self.mat_transformation)
