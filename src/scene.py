@@ -44,7 +44,7 @@ class Scene:
             "Cloud3": Cloud(program, 1.5),
             "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),
             "Helix": Helix(program, Coordinates( 0.0 , 0.0)),
-            "Boat": Boat(program, Coordinates( 0.65 , -0.65))
+            "Boat": Boat(program, Coordinates( 0.65 , -0.75))
         }
 
     def prepare(self):
