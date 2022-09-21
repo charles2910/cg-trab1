@@ -37,6 +37,18 @@ if __name__ == "__main__":
     scene.prepare()
 
     glfw.show_window(window)
+    def key_event(window,key,scancode,action,mods):
+        if key == 265: scene.objects["Boat"].translate( 0.00, 0.01) # Cima
+        if key == 264: scene.objects["Boat"].translate( 0.00,-0.01) # Baixo
+        if key == 263: scene.objects["Boat"].translate(-0.01, 0.00) # Esquerda
+        if key == 262: scene.objects["Boat"].translate( 0.01, 0.00) # Direita
+        if key == 87: scene.objects["Sun"].scale( 0.02, 0.02) # Aumenta
+        if key == 83: scene.objects["Sun"].scale(-0.02, -0.02) # Diminui
+        if key == 65: scene.objects["Helix"].rotate(0.03) # roda
+        if key == 68: scene.objects["Helix"].rotate(-0.03) # roda
+
+    glfw.set_key_callback(window,key_event)
+
 
     # Main window loop
     while not glfw.window_should_close(window):

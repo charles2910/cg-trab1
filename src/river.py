@@ -27,8 +27,8 @@ class River(Object):
         vertices = np.zeros(4, [("position", np.float32, 2)])
         vertices['position'] = [
             (-1.0, -1.0),
-            (-1.0, -0.5),
-            (1.0, -0.1),
+            (-1.0, -0.7),
+            (1.0, -0.5),
             (1.0, -1.0),
         ]
         return vertices

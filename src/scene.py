@@ -13,6 +13,8 @@ from tree import ScotchPineTree, SugarPineTree
 from boat import Boat
 from clouds import Cloud
 from windmill import Windmill
+from helix import Helix
+from object import Coordinates
 
 class Scene:
     """
@@ -27,28 +29,29 @@ class Scene:
     """
     def __init__(self, program):
         # List of all the objects in the scene
-        self.objects = [
-            Sun(program),
-            River(program),
-            Field(program),
-            Mountains(program),
-            Windmill(program),
-            RedHouse(program),
-            GreenHouse(program),
-            SugarPineTree(program),
-            ScotchPineTree(program),
-            Boat(program),
-            Cloud(program, 0),
-            Cloud(program, 1.1),
-            Cloud(program, 1.5),
-        ]
+        self.objects = {
+            "Sun": Sun(program),
+            "River": River(program),
+            "Field": Field(program),
+            "Mountains": Mountains(program),
+            "RedHouse": RedHouse(program),
+            "GreenHouse": GreenHouse(program),
+            "SugarTreePine": SugarPineTree(program),
+            "ScotchTreePine": ScotchPineTree(program, Coordinates( -0.3 , 0.0)),
+            "Cloud1": Cloud(program, 0),
+            "Cloud2": Cloud(program, 1.1),
+            "Cloud3": Cloud(program, 1.5),
+            "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),
+            "Helix": Helix(program, Coordinates( 0.0 , 0.0)),
+            "Boat": Boat(program, Coordinates( 0.65 , -0.65))
+        }
 
     def prepare(self):
         '''Prepare all the objects in the scene'''
-        for object in self.objects:
-            object.prepare()
+        for key in self.objects:
+            self.objects[key].prepare()
 
     def draw(self):
         '''Draw all the objects in the scene'''
-        for object in self.objects:
-            object.draw()
+        for key in self.objects:
+            self.objects[key].draw()
