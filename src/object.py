@@ -73,7 +73,7 @@ class Object:
                                             [0.0, 0.0, 1.0, 0.0],
                                             [0.0, 0.0, 0.0, 1.0]], np.float32)
         # Se a posição inicial for fora da origem, faça a translação "manual"
-        if self.coordinates.x is not 0 or self.coordinates.y is not 0:
+        if self.coordinates.x != 0 or self.coordinates.y != 0:
             self.mat_transformation[0][3] = self.coordinates.x
             self.mat_transformation[1][3] = self.coordinates.y
 
