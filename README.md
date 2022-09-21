@@ -1,8 +1,8 @@
 # Trabalho 1 - Computação Gráfica - SCC0650
 
 ## Alunos
-- Carlos Henrique Lima Melara  9805380
-- Maíra Canal                 xxxxxxxx
+- Carlos H. L. Melara  9805380
+- Maíra Canal         11819403
 
 ## Descrição
 Esse repositório contém o código-fonte do primeiro trabalho da disciplina. A especificação pode ser lida no documento ssss.
