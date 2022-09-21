@@ -73,6 +73,7 @@ class Boat(Object):
         '''Returns a translation matrix with offset (t_x, t_y)'''
         self.coordinates.x += t_x
         self.coordinates.y += t_y
+
         if self.coordinates.x > 1:
             self.coordinates.x -= 2
         elif self.coordinates.x < -1:
@@ -80,7 +81,8 @@ class Boat(Object):
         if self.coordinates.y > 1:
             self.coordinates.y -= 2
         elif self.coordinates.y < -1:
-            self.coordinates.y += 2
+            self.coordinates.y = -1
+
         self.mat_transformation = np.array([
             1.0, 0.0, 0.0, self.coordinates.x,
             0.0, 1.0, 0.0, self.coordinates.y,
