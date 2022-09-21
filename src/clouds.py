@@ -23,16 +23,16 @@ class Cloud(Object):
         translate_x : float
         offset in the x axis relative to the original position of the cloud
     """
-    def __init__(self, program, translate_x, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
+    def __init__(self, program, translate_x, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(0.8, 0.8, 0.8)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)
         self.t_x = translate_x
 
         # A cloud is a composition of 4 circles
         self.circles = [
-            Circle(program, 0.15, Coordinates(-0.85, 0.77), Color(0.80, 0.80, 0.80)),
-            Circle(program, 0.15, Coordinates(-0.79, 0.70), Color(0.80, 0.80, 0.80)),
-            Circle(program, 0.15, Coordinates(-0.70, 0.70), Color(0.80, 0.80, 0.80)),
-            Circle(program, 0.15, Coordinates(-0.75, 0.77), Color(0.80, 0.80, 0.80))
+            Circle(program, 0.15, Coordinates(-0.85, 0.77), color=color),
+            Circle(program, 0.15, Coordinates(-0.79, 0.70), color=color),
+            Circle(program, 0.15, Coordinates(-0.70, 0.70), color=color),
+            Circle(program, 0.15, Coordinates(-0.75, 0.77), color=color)
         ]
 
     def create(self):
