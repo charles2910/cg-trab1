@@ -4,7 +4,7 @@
 # Created Date: 18/09/2022
 # ---------------------------------------------------------------------------
 
-from object import Object
+from object import Object, Coordinates
 
 from OpenGL.GL import *
 import numpy as np
@@ -20,8 +20,13 @@ class ScotchPineTree(Object):
         program : class 'ctypes.c_uint'
         an object to which the shader objects will be attached
     """
-    def __init__(self, program):
+    def __init__(self, program, coord: Coordinates):
         super().__init__(program, None)
+        self.coordinates = coord
+        self.mat_transformation = np.array([1.0, 0.0, 0.0, self.coordinates.x,
+                                            0.0, 1.0, 0.0, self.coordinates.y,
+                                            0.0, 0.0, 1.0, 0.0,
+                                            0.0, 0.0, 0.0, 1.0], np.float32)
 
     def create(self):
         '''Define the vertex of the scotch pine tree'''
