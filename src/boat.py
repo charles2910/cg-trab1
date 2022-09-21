@@ -78,10 +78,11 @@ class Boat(Object):
             self.coordinates.x -= 2
         elif self.coordinates.x < -1:
             self.coordinates.x += 2
-        if self.coordinates.y > 1:
-            self.coordinates.y -= 2
-        elif self.coordinates.y < -1:
-            self.coordinates.y = -1
+        if self.coordinates.y < -0.88:
+            self.coordinates.y = -0.88
+        elif self.coordinates.y - 0.1 * self.coordinates.x > -0.6:
+            self.coordinates.y -= t_y
+            self.coordinates.x -= t_x
 
         self.mat_transformation = np.array([
             1.0, 0.0, 0.0, self.coordinates.x,
