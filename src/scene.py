@@ -14,7 +14,7 @@ from boat import Boat
 from clouds import Cloud
 from windmill import Windmill
 from helix import Helix
-from object import Coordinates
+from object import Color, Coordinates
 
 class Scene:
     """

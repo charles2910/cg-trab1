@@ -30,11 +30,10 @@ class Circle(Object):
         color: class Color
         color of the circle
     """
-    def __init__(self, program, coordinates: Coordinates, radius, color: Color):
-        super().__init__(program, color)
+    def __init__(self, program, radius, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
+        super().__init__(program, coord, obj_scale, obj_rotation, color)
         self.num_vertices = 200
         self.radius = radius
-        self.coordinates = coordinates
 
     def create(self):
         '''Define 200 vertices to draw the circle in the position especified by the coordinates'''

@@ -59,11 +59,14 @@ class Object:
         color : class Color
         color of the object
     """
-    def __init__(self, program, color: Color):
+    def __init__(self, program, coord, obj_scale, obj_rotation, color):
         self.program = program
         self.color = color
         self.vao = None
         self.vertices = None
+        self.coordinates = coord
+        self.obj_scale = obj_scale
+        self.obj_rotation = obj_rotation
         # The base object contains the identity transformation matrix
         self.mat_transformation = np.array([1.0, 0.0, 0.0, 0.0,
                                             0.0, 1.0, 0.0, 0.0,

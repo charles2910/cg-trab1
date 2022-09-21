@@ -19,10 +19,9 @@ class Sun(Circle):
         program : class 'ctypes.c_uint'
         an object to which the shader objects will be attached
     """
-    def __init__(self, program):
-        # Defines the coordinates, radius and color of the sun
-        super().__init__(program, Coordinates(-0.25, 0.75), 0.18, Color(1.0, 0.843, 0))
-        self.obj_scale = 1.0
+    # Defines the custom coordinates, radius and color of the sun
+    def __init__(self, program, coord = Coordinates(-0.25, 0.75), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 0.843, 0)):
+        super().__init__(program, 0.18, coord, obj_scale, obj_rotation, color)
 
     def scale(self, s_x, s_y):
         '''Change a scaling matrix with factor (s_x, s_y)'''
