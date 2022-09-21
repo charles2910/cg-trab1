@@ -41,8 +41,8 @@ class Circle(Object):
 
         for i in range(self.num_vertices):
             angle = (2 * i * math.pi) / 25
-            x = self.coordinates.x + (self.radius - .07) * math.cos(angle)
-            y = self.coordinates.y + self.radius * math.sin(angle)
+            x = (self.radius - .07) * math.cos(angle)
+            y = self.radius * math.sin(angle)
             vertices[i] = [x, y]
 
         return vertices

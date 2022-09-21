@@ -39,7 +39,7 @@ class Scene:
             "SugarTreePine1": SugarPineTree(program),
             "ScotchTreePine1": ScotchPineTree(program, Coordinates( -0.3 , 0.0)),
             "ScotchTreePine2": ScotchPineTree(program, Coordinates( 0.89 , -0.24)),
-            "Cloud1": Cloud(program, 0),
+            "Cloud1": Cloud(program, 0.0),
             "Cloud2": Cloud(program, 1.1),
             "Cloud3": Cloud(program, 1.5),
             "Windmill": Windmill(program, Coordinates( 0.3 , -0.45)),

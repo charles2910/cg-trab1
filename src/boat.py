@@ -22,10 +22,6 @@ class Boat(Object):
     """
     def __init__(self, program, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)
-        self.mat_transformation = np.array([1.0, 0.0, 0.0, self.coordinates.x,
-                                            0.0, 1.0, 0.0, self.coordinates.y,
-                                            0.0, 0.0, 1.0, 0.0,
-                                            0.0, 0.0, 0.0, 1.0], np.float32)
 
     def create(self):
         '''Define the vertex of the boat'''
@@ -68,23 +64,26 @@ class Boat(Object):
         glBindVertexArray(0)
 
     def translate(self, t_x, t_y):
-        '''Returns a translation matrix with offset (t_x, t_y)'''
-        self.coordinates.x += t_x
-        self.coordinates.y += t_y
+        '''Executes a translation with offset (t_x, t_y)'''
+        new_x = self.coordinates.x + t_x
+        new_y = self.coordinates.y + t_y
 
-        if self.coordinates.x > 1:
-            self.coordinates.x -= 2
-        elif self.coordinates.x < -1:
-            self.coordinates.x += 2
-        if self.coordinates.y < -0.88:
-            self.coordinates.y = -0.88
-        elif self.coordinates.y - 0.1 * self.coordinates.x > -0.6:
-            self.coordinates.y -= t_y
-            self.coordinates.x -= t_x
+        # Condições de controle (respectivamente):
+        # - Ao mover, o barco passará seu centro pela direita da janela?
+        # - Ao mover, o barco passará seu centro pela esquerda da janela?
+        # - Ao mover, o barco passará seu centro para baixo da janela?
+        # - Ao mover, o barco passará seu centro para o gramado?
+        # Se sim, condição de contorno
+        if new_x > 1:
+            t_x -= 2.0
+            new_x = self.coordinates.x + t_x
+        if new_x < -1:
+            t_x += 2.0
+            new_x = self.coordinates.x + t_x
+        if new_y < -0.89:
+            t_y = 0.0
+        elif new_y - 0.1 * new_x > -0.6:
+            t_y = 0.0
+            t_x = 0.0
 
-        self.mat_transformation = np.array([
-            1.0, 0.0, 0.0, self.coordinates.x,
-            0.0, 1.0, 0.0, self.coordinates.y,
-            0.0, 0.0, 1.0, 0.0,
-            0.0, 0.0, 0.0, 1.0],
-            np.float32)
+        super().translate(t_x, t_y)

@@ -68,10 +68,14 @@ class Object:
         self.obj_scale = obj_scale
         self.obj_rotation = obj_rotation
         # The base object contains the identity transformation matrix
-        self.mat_transformation = np.array([1.0, 0.0, 0.0, 0.0,
-                                            0.0, 1.0, 0.0, 0.0,
-                                            0.0, 0.0, 1.0, 0.0,
-                                            0.0, 0.0, 0.0, 1.0], np.float32)
+        self.mat_transformation = np.array([[1.0, 0.0, 0.0, 0.0],
+                                            [0.0, 1.0, 0.0, 0.0],
+                                            [0.0, 0.0, 1.0, 0.0],
+                                            [0.0, 0.0, 0.0, 1.0]], np.float32)
+        # Se a posição inicial for fora da origem, faça a translação "manual"
+        if self.coordinates.x is not 0 or self.coordinates.y is not 0:
+            self.mat_transformation[0][3] = self.coordinates.x
+            self.mat_transformation[1][3] = self.coordinates.y
 
     @abstractmethod
     def create(self):
@@ -114,13 +118,16 @@ class Object:
         glBindVertexArray(0)
 
     def translate(self, t_x, t_y):
-        '''Returns a translation matrix with offset (t_x, t_y)'''
-        self.mat_transformation = np.array([
-            1.0, 0.0, 0.0, t_x,
-            0.0, 1.0, 0.0, t_y,
-            0.0, 0.0, 1.0, 0.0,
-            0.0, 0.0, 0.0, 1.0],
+        '''Multiply the current matrix by the translation matrix with offset (t_x, t_y)'''
+        self.coordinates.x += t_x
+        self.coordinates.y += t_y
+        transl_matrix = np.array([
+            [1.0, 0.0, 0.0, t_x],
+            [0.0, 1.0, 0.0, t_y],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0]],
             np.float32)
+        self.mat_transformation = np.matmul(self.mat_transformation, transl_matrix)
 
     def scale(self, s_x, s_y):
         '''Returns a scaling matrix with factor (s_x, s_y)'''
