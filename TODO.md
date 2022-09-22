@@ -20,8 +20,8 @@
 - [X] Criar primitivas de translação, rotação e escala
 - [X] Adicionar leitura de teclado e execução das primitivas
 - [X] Apresentação de slides detalhando os componentes do programa e ações sobre eles.
-- [ ] Documentação (Comentários)
-- [ ] Adicionar controles (teclas) no README.md
+- [X] Documentação (Comentários)
+- [X] Adicionar controles (teclas) no README.md
 - [X] Indicação dos membros do grupo no início do código.
 
 # Requistos do Projeto
