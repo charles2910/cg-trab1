@@ -42,10 +42,14 @@ if __name__ == "__main__":
         if key == 264: scene.objects["Boat"].translate( 0.00,-0.01) # Baixo
         if key == 263: scene.objects["Boat"].translate(-0.01, 0.00) # Esquerda
         if key == 262: scene.objects["Boat"].translate( 0.01, 0.00) # Direita
+
         if key == 87: scene.objects["Sun"].scale(1.02, 1.02) # Aumenta
         if key == 83: scene.objects["Sun"].scale(0.98, 0.98) # Diminui
-        if key == 65: scene.objects["Helix"].rotate(0.03) # roda
-        if key == 68: scene.objects["Helix"].rotate(-0.03) # roda
+        if key == 68: scene.objects["Sun"].translate( 0.01, 0.00) # Aumenta
+        if key == 65: scene.objects["Sun"].translate(-0.01, 0.00) # Diminui
+
+        if key == 81: scene.objects["Helix"].rotate(0.03) # roda
+        if key == 69: scene.objects["Helix"].rotate(-0.03) # roda
 
     glfw.set_key_callback(window,key_event)
 
