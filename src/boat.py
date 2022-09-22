@@ -97,5 +97,14 @@ class Boat(Object):
         elif new_y - 0.1 * new_x > -0.6:
             t_y = 0.0
             t_x = 0.0
-
         super().translate(t_x, t_y)
+
+    def scale(self, s_x, s_y):
+        '''Multiply the current matrix by the scale matrix (s_x, s_x). Keep ratio s_y = s_x'''
+        new_scale = self.obj_scale * s_x
+        # Limita o quanto o barco pode crescer ou diminuir
+        if new_scale > 1.13:
+            s_x = 1.0
+        elif new_scale < 0.77:
+            s_x = 1.0
+        super().scale(s_x, s_x)
