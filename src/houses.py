@@ -18,7 +18,19 @@ class RedHouse(Object):
         Attributes
         ----------
         program : class 'ctypes.c_uint'
-        an object to which the shader objects will be attached
+        An object to which the shader objects will be attached
+
+        coord : class Coordinates
+        Cartesian coordinates of the center of the house. Defaults to Coordinates(0.0, 0.0)
+
+        obj_scale: float
+        Initial scale of the house. Defaults to 1.0
+
+        obj_rotation: float
+        Initial rotation of the house in radians from the x axis. Defaults to 0.0
+
+        color: class Color
+        Initial color of the house. Defaults to Color(1.0, 1.0, 1.0)
     """
     def __init__(self, program, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)

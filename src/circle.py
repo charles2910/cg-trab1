@@ -21,14 +21,20 @@ class Circle(Object):
         program : class 'ctypes.c_uint'
         an object to which the shader objects will be attached
 
-        coordinates : class Coordinates
-        cartesian coordinates of the center of the circle
-
         radius: float
         radius of the circle
 
+        coord : class Coordinates
+        cartesian coordinates of the center of the circle
+
+        obj_scale: float
+        Initial scale of the circle. Defaults to 1.0
+
+        obj_rotation: float
+        Initial rotation of the circle in radians from the x axis. Defaults to 0.0
+
         color: class Color
-        color of the circle
+        Initial color of the circle. Defaults to Color(1.0, 1.0, 1.0)
     """
     def __init__(self, program, radius, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(1.0, 1.0, 1.0)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)

@@ -18,10 +18,22 @@ class Cloud(Object):
         Attributes
         ----------
         program : class 'ctypes.c_uint'
-        an object to which the shader objects will be attached
+        An object to which the shader objects will be attached
 
         translate_x : float
-        offset in the x axis relative to the original position of the cloud
+        Offset in the x axis relative to the original position of the cloud
+
+        coord : class Coordinates
+        Cartesian coordinates of the center of the cloud
+
+        obj_scale: float
+        Initial scale of the cloud. Defaults to 1.0
+
+        obj_rotation: float
+        Initial rotation of the cloud in radians from the x axis. Defaults to 0.0
+
+        color: class Color
+        Initial color of the cloud. Defaults to Color(0.8, 0.8, 0.8)
     """
     def __init__(self, program, translate_x, coord = Coordinates(0.0, 0.0), obj_scale = 1.0, obj_rotation = 0.0, color = Color(0.8, 0.8, 0.8)):
         super().__init__(program, coord, obj_scale, obj_rotation, color)

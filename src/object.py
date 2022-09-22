@@ -55,9 +55,19 @@ class Object:
         Attributes
         ----------
         program : class 'ctypes.c_uint'
-        an object to which the shader objects will be attached
-        color : class Color
-        color of the object
+        An object to which the shader objects will be attached
+
+        coord : class Coordinates
+        Cartesian coordinates of the center of the object
+
+        obj_scale: float
+        Initial scale of the object
+
+        obj_rotation: float
+        Initial rotation of the object in radians from the x axis
+
+        color: class Color
+        Initial color of the object
     """
     def __init__(self, program, coord, obj_scale, obj_rotation, color):
         self.program = program
