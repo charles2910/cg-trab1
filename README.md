@@ -54,5 +54,11 @@ Se for usar o jupyter notebook:
 jupyter-notebook
 ```
 
+### Comandos
+- É possível mover o barco com as setas do teclado;
+- É possível mover horizontalmente o Sol com as teclas `a` e `d`;
+- É possível aumentar o Sol com a teclas `w` e diminui-lo com `s`;
+- É possível rotacionar as pás do moinho com as teclas `q` e `e`;
+
 ## Licença
 O código-fonte escrito por nós será licenciado como xxxxxxxx.
