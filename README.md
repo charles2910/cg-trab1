@@ -11,6 +11,12 @@ Esse repositório contém o código-fonte do primeiro trabalho da disciplina. A 
 Para usar esse projeto, recomenda-se a utilização de um ambiente virtual python (python venv). Para isso, basta criar um novo `venv` após baixar o código:
 
 ```bash
+python -m venv venv
+```
+
+Para o Debian:
+
+```bash
 python3 -m venv venv
 ```
 
@@ -47,12 +53,7 @@ Para executar a aplicação:
 ```bash
 python main.py
 ```
-
-Se for usar o jupyter notebook:
-
-```bash
-jupyter-notebook
-```
+``
 
 ### Comandos
 - É possível mover o barco com as setas do teclado;
@@ -61,4 +62,4 @@ jupyter-notebook
 - É possível rotacionar as pás do moinho com as teclas `q` e `e`;
 
 ## Licença
-O código-fonte escrito por nós será licenciado como xxxxxxxx.
+O código-fonte escrito por nós será licenciado com a licença MIT.
