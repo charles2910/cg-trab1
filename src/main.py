@@ -38,8 +38,12 @@ if __name__ == "__main__":
 
     glfw.show_window(window)
     def key_event(window,key,scancode,action,mods):
-        if key == 265: scene.objects["Boat"].translate( 0.00, 0.01) # Cima
-        if key == 264: scene.objects["Boat"].translate( 0.00,-0.01) # Baixo
+        if key == 265:
+            scene.objects["Boat"].translate( 0.00, 0.01) # Cima
+            scene.objects["Boat"].scale( 0.99, 0.99) # Fica menor == mais longe
+        if key == 264:
+            scene.objects["Boat"].translate( 0.00,-0.01) # Baixo
+            scene.objects["Boat"].scale( 1.01, 1.01) # Fica maior == mais perto
         if key == 263: scene.objects["Boat"].translate(-0.01, 0.00) # Esquerda
         if key == 262: scene.objects["Boat"].translate( 0.01, 0.00) # Direita
 
