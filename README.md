@@ -5,7 +5,7 @@
 - Maíra Canal         11819403
 
 ## Descrição
-Esse repositório contém o código-fonte do primeiro trabalho da disciplina. A especificação pode ser lida no documento ssss.
+Esse repositório contém o código-fonte do primeiro trabalho da disciplina.
 
 ## Instalação
 Para usar esse projeto, recomenda-se a utilização de um ambiente virtual python (python venv). Para isso, basta criar um novo `venv` após baixar o código:
@@ -51,7 +51,7 @@ export LIBGL_DRIVERS_PATH=/usr/lib/x86_64-linux-gnu/dri
 Para executar a aplicação:
 
 ```bash
-python main.py
+python src/main.py
 ```
 
 ### Comandos
