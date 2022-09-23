@@ -53,7 +53,6 @@ Para executar a aplicação:
 ```bash
 python main.py
 ```
-``
 
 ### Comandos
 - É possível mover o barco com as setas do teclado;

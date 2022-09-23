@@ -38,6 +38,7 @@ if __name__ == "__main__":
 
     glfw.show_window(window)
     def key_event(window,key,scancode,action,mods):
+        # Movimentos do barco com as setas
         if key == 265:
             scene.objects["Boat"].translate( 0.00, 0.01) # Cima
             scene.objects["Boat"].scale( 0.99, 0.99) # Fica menor == mais longe
@@ -47,11 +48,13 @@ if __name__ == "__main__":
         if key == 263: scene.objects["Boat"].translate(-0.01, 0.00) # Esquerda
         if key == 262: scene.objects["Boat"].translate( 0.01, 0.00) # Direita
 
+        # Movimentos do Sol com aswd
         if key == 87: scene.objects["Sun"].scale(1.02, 1.02) # Aumenta
         if key == 83: scene.objects["Sun"].scale(0.98, 0.98) # Diminui
-        if key == 68: scene.objects["Sun"].translate( 0.01, 0.00) # Aumenta
-        if key == 65: scene.objects["Sun"].translate(-0.01, 0.00) # Diminui
+        if key == 68: scene.objects["Sun"].translate( 0.01, 0.00) # Direita
+        if key == 65: scene.objects["Sun"].translate(-0.01, 0.00) # Esquerda
 
+        # Movimentos da Hélice com qe
         if key == 81: scene.objects["Helix"].rotate(0.03) # roda
         if key == 69: scene.objects["Helix"].rotate(-0.03) # roda
 
