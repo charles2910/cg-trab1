@@ -47,7 +47,6 @@ class ScotchPineTree(Object):
         # Add random componente to differentiate trees
         trunk_width = np.random.rand() / 50.0 - 0.01
         foliage_width = np.random.rand() / 30.0 - 0.0167
-        foliage_height = np.random.rand() / 20.0 - 0.025
 
         vertices['position'] = [
             # Trunk
@@ -57,15 +56,15 @@ class ScotchPineTree(Object):
             (-0.08 - trunk_width, -0.2),
 
             # Foliage
-            (-0.18,-0.00),
-            (-0.06, 0.24),
-            ( 0.06, 0.00),
-            (-0.18, 0.08),
-            (-0.06, 0.32),
-            ( 0.06, 0.08),
-            (-0.18, 0.16),
+            (-0.18 + foliage_width,-0.00),
+            (-0.06 + foliage_width, 0.24),
+            ( 0.06 - foliage_width, 0.00),
+            (-0.18 + foliage_width, 0.08),
+            (-0.06 + foliage_width, 0.32),
+            ( 0.06 - foliage_width, 0.08),
+            (-0.18 + foliage_width, 0.16),
             (-0.06, 0.40),
-            ( 0.06, 0.16),
+            ( 0.06 - foliage_width, 0.16),
         ]
         return vertices
 
