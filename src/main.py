@@ -37,6 +37,8 @@ if __name__ == "__main__":
     scene.prepare()
 
     glfw.show_window(window)
+
+    # Cria listener para teclas e define ações para cada uma delas
     def key_event(window,key,scancode,action,mods):
         # Movimentos do barco com as setas
         if key == 265:

@@ -45,6 +45,7 @@ class Circle(Object):
         '''Define 200 vertices to draw the circle in the position especified by the coordinates'''
         vertices = np.zeros(self.num_vertices, [("position", np.float32, 2)])
 
+        # Calcula a coordenada de cada ponto
         for i in range(self.num_vertices):
             angle = (2 * i * math.pi) / 25
             x = (self.radius - .07) * math.cos(angle)

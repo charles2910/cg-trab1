@@ -85,7 +85,8 @@ class Boat(Object):
         # - Ao mover, o barco passará seu centro pela esquerda da janela?
         # - Ao mover, o barco passará seu centro para baixo da janela?
         # - Ao mover, o barco passará seu centro para o gramado?
-        # Se sim, condição de contorno
+        # Se sim, condição de contorno: aparecer do outro lado (direita ou esquerda)
+        # ou ficar parado (para cima e para baixo)
         if new_x > 1:
             t_x -= 2.0
             new_x = self.coordinates.x + t_x
