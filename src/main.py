@@ -72,6 +72,11 @@ if __name__ == "__main__":
         # Set sky color
         glClearColor(0.529, 0.808, 0.922, 1.0)
 
+        # Move clouds through the sky
+        scene.objects["Cloud1"].translate(0.001, 0.0)
+        scene.objects["Cloud2"].translate(0.001, 0.0)
+        scene.objects["Cloud3"].translate(0.001, 0.0)
+
         scene.draw()
 
         glfw.swap_buffers(window)

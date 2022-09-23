@@ -52,6 +52,11 @@ class Cloud(Object):
             circle.prepare()
 
     def draw(self):
-        '''Draw each of the circles applying the translation matrix'''
+        '''Draw each of the circles'''
         for circle in self.circles:
             circle.draw()
+
+    def translate(self, t_x, t_y):
+        '''Translate each of the circles'''
+        for circle in self.circles:
+            circle.translate(t_x, t_y)

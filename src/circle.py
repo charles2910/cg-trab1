@@ -53,3 +53,20 @@ class Circle(Object):
             vertices[i] = [x, y]
 
         return vertices
+
+    def translate(self, t_x, t_y):
+        '''Executes a translation with offset (t_x, t_y)'''
+        new_x = self.coordinates.x + t_x
+
+        # Condições de controle (respectivamente):
+        # - Ao mover, o círculo passará seu centro pela direita da janela?
+        # - Ao mover, o círculo passará seu centro pela esquerda da janela?
+        # Se sim, condição de contorno: aparecer do outro lado
+        if new_x > 1:
+            t_x -= 2.0
+            new_x = self.coordinates.x + t_x
+        if new_x < -1:
+            t_x += 2.0
+            new_x = self.coordinates.x + t_x
+
+        super().translate(t_x, t_y)
